@@ -48,7 +48,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\DbFactory.cs" />
+    <Compile Include="Infrastructure\Disposable.cs" />
+    <Compile Include="Infrastructure\IDbFactory.cs" />
+    <Compile Include="Infrastructure\IReponsitory.cs" />
+    <Compile Include="Infrastructure\IUnitOfWork.cs" />
+    <Compile Include="Infrastructure\RepositoryBase.cs" />
+    <Compile Include="Infrastructure\UnitOfWork.cs" />
+    <Compile Include="Migrations\201902230843429_InitialDB.cs" />
+    <Compile Include="Migrations\201902230843429_InitialDB.Designer.cs">
+      <DependentUpon>201902230843429_InitialDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="NTShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reponsitories\ProductCategoryRepository.cs" />
+    <Compile Include="Reponsitories\ProductRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -59,6 +74,15 @@
       <Project>{1b996322-0af2-4ff1-a7fd-83eae20b4ce4}</Project>
       <Name>NTShop.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NTShop.Model\NTShop.Model.csproj">
+      <Project>{6708cd03-f706-4d2d-8902-fab72f9de808}</Project>
+      <Name>NTShop.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201902230843429_InitialDB.resx">
+      <DependentUpon>201902230843429_InitialDB.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
