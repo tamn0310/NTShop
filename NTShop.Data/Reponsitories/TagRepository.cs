@@ -1,0 +1,14 @@
+﻿using NTShop.Data.Infrastructure;
+using NTShop.Model.Models;
+
+namespace NTShop.Data.Reponsitories
+{
+    public interface ITagRepository { }
+
+    public class TagRepository : RepositoryBase<Tag>, ITagRepository
+    {
+        public TagRepository(IDbFactory dbFactory) : base(dbFactory)
+        {
+        }
+    }
+}
