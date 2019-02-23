@@ -3,7 +3,7 @@ using NTShop.Model.Models;
 
 namespace NTShop.Data.Reponsitories
 {
-    public interface IMenuGroupRepository
+    public interface IMenuGroupRepository : IReponsitory<MenuGroup>
     {
     }
 

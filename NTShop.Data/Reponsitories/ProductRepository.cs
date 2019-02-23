@@ -3,7 +3,7 @@ using NTShop.Model.Models;
 
 namespace NTShop.Data.Reponsitories
 {
-    public interface IProductRepository
+    public interface IProductRepository : IReponsitory<Product>
     {
     }
 

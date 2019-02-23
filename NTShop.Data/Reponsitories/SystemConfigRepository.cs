@@ -3,7 +3,7 @@ using NTShop.Model.Models;
 
 namespace NTShop.Data.Reponsitories
 {
-    public interface ISystemConfigRepository { }
+    public interface ISystemConfigRepository : IReponsitory<SystemConfig> { }
 
     public class SystemConfigRepository : RepositoryBase<SystemConfig>, ISystemConfigRepository
     {

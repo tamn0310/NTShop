@@ -3,7 +3,7 @@ using NTShop.Model.Models;
 
 namespace NTShop.Data.Reponsitories
 {
-    public interface IPostCategoryRepository { }
+    public interface IPostCategoryRepository : IReponsitory<PostCategory> { }
 
     public class PostCategoryRepository : RepositoryBase<PostCategory>, IPostCategoryRepository
     {

@@ -3,7 +3,7 @@ using NTShop.Model.Models;
 
 namespace NTShop.Data.Reponsitories
 {
-    public interface ISlideRepository { }
+    public interface ISlideRepository : IReponsitory<Slide> { }
 
     public class SlideRepository : RepositoryBase<Slide>, ISlideRepository
     {

@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace NTShop.Data.Reponsitories
 {
-    public interface IProductCategoryRepository
+    public interface IProductCategoryRepository : IReponsitory<ProductCategory>
     {
         IEnumerable<ProductCategory> GetByAlias(string alias);
     }
