@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace NTShop.Data.Infrastructure
 {
-    public interface IReponsitory<T> where T : class
+    public interface IReponsitory<T> where T :  class
     {
         // Marks an entity as new
         T Add(T entity);
