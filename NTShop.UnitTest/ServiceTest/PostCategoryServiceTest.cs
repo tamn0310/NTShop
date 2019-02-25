@@ -52,7 +52,7 @@ namespace NTShop.UnitTest.ServiceTest
             category.Name = "Test";
             category.Alias = "test";
             category.Status = true;
-
+             
             _mockRepository.Setup(m => m.Add(category)).Returns((PostCategory p) =>
             {
                 p.ID = 1;
