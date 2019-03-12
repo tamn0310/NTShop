@@ -104,10 +104,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NTShop.Common\NTShop.Common.csproj">
-      <Project>{1b996322-0af2-4ff1-a7fd-83eae20b4ce4}</Project>
-      <Name>NTShop.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\NTShop.Model\NTShop.Model.csproj">
       <Project>{6708cd03-f706-4d2d-8902-fab72f9de808}</Project>
       <Name>NTShop.Model</Name>
