@@ -1,5 +1,9 @@
 ﻿(function () {
-    angular.module('ntshop', ['ntshop.products','ntshop.common']).config(config);
+    angular.module('ntshop',
+        ['ntshop.products',
+         'ntshop.product_categories',
+         'ntshop.common'])
+        .config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
