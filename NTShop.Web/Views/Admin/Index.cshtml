@@ -10,6 +10,7 @@
     <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Theme style -->
+    <link href="~/bower_components/toastr/toastr.css" rel="stylesheet" />
     <link href="~/Assets/admin/css/AdminLTE.min.css" rel="stylesheet" />
 
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -52,19 +53,10 @@
                         <!-- Messages: style can be found in dropdown.less-->
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="~/Assets/admin/img/user2-160x160.jpg" class="user-image">
-                                <span class="hidden-xs">Alexander Pierce</span>
-                            </a>
+                            
                             <ul class="dropdown-menu">
                                 <!-- User image -->
-                                <li class="user-header">
-                                    <img src="~/Assets/admin/img/user2-160x160.jpg" class="user-image">
-                                    <p>
-                                        KaiKai - Web Developer
-                                        <small>Member since Nov. 2017</small>
-                                    </p>
-                                </li>
+                                
                                 <!-- Menu Body -->
                                 <li class="user-body">
                                     <div class="col-xs-4 text-center">
@@ -78,14 +70,7 @@
                                     </div>
                                 </li>
                                 <!-- Menu Footer-->
-                                <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                                    </div>
-                                </li>
+                                
                             </ul>
                         </li>
                         <!-- Control Sidebar Toggle Button -->
@@ -135,7 +120,7 @@
                         <a href="#">
                             <i class="fa fa-files-o"></i>
                             <span>Danh mục sản phẩm</span>
-                            <span class="label label-primary pull-right">4</span>
+
                         </a>
                         <ul class="treeview-menu">
                             <li><a ui-sref="product_categories"><i class="fa fa-circle-o"></i> Danh mục sản phẩm</a></li>
@@ -438,10 +423,10 @@
              immediately after the control sidebar -->
         <div class="control-sidebar-bg"></div>
     </div><!-- ./wrapper -->
-    <!-- jQuery 3.3.1 -->
-    <script src="/bower_components/jQuery/dist/jquery.js"></script>
-
+    <!-- jquery 3.3.1 -->
+    <script src="~/bower_components/jquery/dist/jquery.js"></script>
     <!-- Bootstrap 4.3.1 -->
+
     <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <!-- SlimScroll -->
 
@@ -455,6 +440,7 @@
     <!--Begin embed angularJS-->
     <script src="~/bower_components/angular/angular.js"></script>
     <script src="~/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="~/bower_components/toastr/toastr.js"></script>
 
     <script>
         $(document).ready(function () {
@@ -463,8 +449,11 @@
 
     <script src="~/app/shared/modules/ntshop.common.js"></script>
     <script src="~/app/shared/filters/statusFilter.js"></script>
+
     <script src="~/app/shared/service/apiService.js"></script>
+    <script src="~/app/shared/service/notificationService.js"></script>
     <script src="~/app/shared/directives/pagerDirective.js"></script>
+
     <script src="~/app/components/products/products.module.js"></script>
     <script src="~/app/components/product_categories/productCategories.module.js"></script>
 
