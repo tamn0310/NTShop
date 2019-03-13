@@ -28,17 +28,27 @@
                     <table class="table table-bordered">
                         <tr>
                             <th style="width:5%">ID</th>
-                            <th style="width:40%">Tên Danh Mục</th>
-                            <th style="width:35%">Ngày Tạo</th>
+                            <th style="width:50%">Tên Danh Mục</th>
+                            <th style="width:20%">Ngày Tạo</th> 
                             <th style="width:10%">Trạng Thái</th>
+                            <th style="width:15%">Thao Tác</th>
                         </tr>
                         <tr ng-repeat="item in productCategories">
                             <td>{{item.ID}}</td>
                             <td>{{item.Name}}</td>
                             <td>
-                                {{item.CreatedDate}}
+                                {{item.CreatedDate | date:"dd/MM/yyyy hh:mm:ss"}}
                             </td>
-                            <td><span class="badge bg-red">{{item.Status}}</span></td>
+                            <!--class="badge bg-red"-->
+                            <td>
+                                <span ng-class="{'badge bg-red':item.Status==false,'badge bg-green':item.Status ==true}">
+                                    {{item.Status | statusFilter}}
+                                </span>
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-primary">Sửa</button>
+                                <button class="btn btn-sm btn-danger">Xóa</button>
+                            </td>
                         </tr>
                     </table>
                 </div>
