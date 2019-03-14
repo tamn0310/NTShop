@@ -11,6 +11,7 @@
         $scope.keyword = '';
 
         $scope.search = search;
+       
 
         function search() {
             getProductCategories();
@@ -29,9 +30,7 @@
                 if (result.data.TotalCount == 0) {
                     notificationService.displayWarning('Không có bản ghi nào được tìm thấy.');
                 }
-                else {
-                    notificationService.displaySuccess('Tìm thấy ' + result.data.TotalCount + ' bản ghi');
-                }
+                
                 $scope.productCategories = result.data.Items;
                 $scope.page = result.data.Page;
                 $scope.pagesCount = result.data.TotalPages;

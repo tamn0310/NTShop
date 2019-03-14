@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace NTShop.Web.Models
 {
@@ -7,8 +8,10 @@ namespace NTShop.Web.Models
     {
         public int ID { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
+        [Required]
         public string Alias { get; set; }
 
         public string Description { get; set; }
@@ -32,6 +35,7 @@ namespace NTShop.Web.Models
 
         public string MateDescription { get; set; }
 
+        [Required]
         public bool Status { set; get; }
 
         public virtual IEnumerable<ProductViewModel> Products { get; set; }

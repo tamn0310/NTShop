@@ -7,7 +7,6 @@ namespace NTShop.Web.Infrastructure.Extentions
     {
         public static void UpdatePostCategory(this PostCategory postCategory, PostCategoryViewModel postCategoryVm)
         {
-
             postCategory.ID = postCategoryVm.ID;
             postCategory.Name = postCategoryVm.Name;
             postCategory.Alias = postCategoryVm.Alias;
@@ -26,14 +25,33 @@ namespace NTShop.Web.Infrastructure.Extentions
             postCategory.Status = postCategoryVm.Status;
         }
 
+        public static void UpdateProductCategory(this ProductCategory productCategory, ProductCategoryViewModel productCategoryVm)
+        {
+            productCategory.ID = productCategoryVm.ID;
+            productCategory.Name = productCategoryVm.Name;
+            productCategory.Alias = productCategoryVm.Alias;
+            productCategory.Description = productCategoryVm.Description;
+            productCategory.ParentID = productCategoryVm.ParentID;
+            productCategory.DisplayOrder = productCategoryVm.DisplayOrder;
+            productCategory.Image = productCategoryVm.Image;
+            productCategory.HomeFlag = productCategoryVm.HomeFlag;
+
+            productCategory.CreatedDate = productCategoryVm.CreatedDate;
+            productCategory.CreatedBy = productCategoryVm.CreatedBy;
+            productCategory.UpdatedDate = productCategoryVm.UpdatedDate;
+            productCategory.UpdatedBy = productCategoryVm.UpdatedBy;
+            productCategory.MateKeyword = productCategoryVm.MateKeyword;
+            productCategory.MateDescription = productCategoryVm.MateDescription;
+            productCategory.Status = productCategoryVm.Status;
+        }
+
         public static void UpdatePost(this Post post, PostViewModel postVm)
         {
-
             post.ID = postVm.ID;
             post.Name = postVm.Name;
             post.Alias = postVm.Alias;
             post.Description = postVm.Description;
-            post.CategoryID = postVm.CategoryID;    
+            post.CategoryID = postVm.CategoryID;
             post.Content = postVm.Content;
             post.Image = postVm.Image;
             post.HomeFlag = postVm.HomeFlag;
