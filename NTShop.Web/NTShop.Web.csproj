@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -25,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -310,6 +312,50 @@
     <Content Include="bower_components\angular\angular.js" />
     <Content Include="bower_components\angular\angular.min.js" />
     <Content Include="bower_components\angular\index.js" />
+    <Content Include="bower_components\bootbox\.gitignore" />
+    <Content Include="bower_components\bootbox\dist\bootbox.all.min.js" />
+    <Content Include="bower_components\bootbox\dist\bootbox.locales.min.js" />
+    <Content Include="bower_components\bootbox\dist\bootbox.min.js" />
+    <Content Include="bower_components\bootbox\src\bootbox.js" />
+    <Content Include="bower_components\bootbox\src\bootbox.locales.js" />
+    <Content Include="bower_components\bootbox\src\locales\ar.js" />
+    <Content Include="bower_components\bootbox\src\locales\az.js" />
+    <Content Include="bower_components\bootbox\src\locales\bg_BG.js" />
+    <Content Include="bower_components\bootbox\src\locales\cs.js" />
+    <Content Include="bower_components\bootbox\src\locales\da.js" />
+    <Content Include="bower_components\bootbox\src\locales\de.js" />
+    <Content Include="bower_components\bootbox\src\locales\el.js" />
+    <Content Include="bower_components\bootbox\src\locales\en.js" />
+    <Content Include="bower_components\bootbox\src\locales\es.js" />
+    <Content Include="bower_components\bootbox\src\locales\et.js" />
+    <Content Include="bower_components\bootbox\src\locales\eu.js" />
+    <Content Include="bower_components\bootbox\src\locales\fa.js" />
+    <Content Include="bower_components\bootbox\src\locales\fi.js" />
+    <Content Include="bower_components\bootbox\src\locales\fr.js" />
+    <Content Include="bower_components\bootbox\src\locales\he.js" />
+    <Content Include="bower_components\bootbox\src\locales\hr.js" />
+    <Content Include="bower_components\bootbox\src\locales\hu.js" />
+    <Content Include="bower_components\bootbox\src\locales\id.js" />
+    <Content Include="bower_components\bootbox\src\locales\it.js" />
+    <Content Include="bower_components\bootbox\src\locales\ja.js" />
+    <Content Include="bower_components\bootbox\src\locales\ko.js" />
+    <Content Include="bower_components\bootbox\src\locales\lt.js" />
+    <Content Include="bower_components\bootbox\src\locales\lv.js" />
+    <Content Include="bower_components\bootbox\src\locales\nl.js" />
+    <Content Include="bower_components\bootbox\src\locales\no.js" />
+    <Content Include="bower_components\bootbox\src\locales\pl.js" />
+    <Content Include="bower_components\bootbox\src\locales\pt-br.js" />
+    <Content Include="bower_components\bootbox\src\locales\pt.js" />
+    <Content Include="bower_components\bootbox\src\locales\ru.js" />
+    <Content Include="bower_components\bootbox\src\locales\sk.js" />
+    <Content Include="bower_components\bootbox\src\locales\sl.js" />
+    <Content Include="bower_components\bootbox\src\locales\sq.js" />
+    <Content Include="bower_components\bootbox\src\locales\sv.js" />
+    <Content Include="bower_components\bootbox\src\locales\th.js" />
+    <Content Include="bower_components\bootbox\src\locales\tr.js" />
+    <Content Include="bower_components\bootbox\src\locales\uk.js" />
+    <Content Include="bower_components\bootbox\src\locales\zh_CN.js" />
+    <Content Include="bower_components\bootbox\src\locales\zh_TW.js" />
     <Content Include="bower_components\bootstrap\.babelrc.js" />
     <Content Include="bower_components\bootstrap\.gitattributes" />
     <Content Include="bower_components\bootstrap\.gitignore" />
@@ -650,6 +696,18 @@
     <Content Include="bower_components\jquery\src\var\support.js" />
     <Content Include="bower_components\jquery\src\var\toString.js" />
     <Content Include="bower_components\jquery\src\wrap.js" />
+    <Content Include="bower_components\ngBootbox\dist\ngBootbox.js" />
+    <Content Include="bower_components\ngBootbox\dist\ngBootbox.min.js" />
+    <Content Include="bower_components\ngBootbox\examples\example-1\app.js" />
+    <Content Include="bower_components\ngBootbox\examples\example-1\custom-dialog.tpl.html" />
+    <Content Include="bower_components\ngBootbox\examples\example-1\index.html" />
+    <Content Include="bower_components\ngBootbox\examples\example-2\app.js" />
+    <Content Include="bower_components\ngBootbox\examples\example-2\index.html" />
+    <Content Include="bower_components\ngBootbox\examples\example-2\main.js" />
+    <Content Include="bower_components\ngBootbox\examples\example-2\require.js" />
+    <Content Include="bower_components\ngBootbox\examples\index.html" />
+    <Content Include="bower_components\ngBootbox\gulpfile.js" />
+    <Content Include="bower_components\ngBootbox\ngBootbox.js" />
     <Content Include="bower_components\slimScroll\examples\allow-page-scroll.html" />
     <Content Include="bower_components\slimScroll\examples\chaining.html" />
     <Content Include="bower_components\slimScroll\examples\disable-fade-out.html" />
@@ -1006,6 +1064,23 @@
     <Content Include="bower_components\jquery\external\sizzle\dist\sizzle.min.map" />
     <Content Include="bower_components\jquery\README.md" />
     <Content Include="bower_components\jquery\src\.eslintrc.json" />
+    <Content Include="bower_components\bootbox\.bower.json" />
+    <Content Include="bower_components\bootbox\.jshintrc" />
+    <Content Include="bower_components\bootbox\.npmignore" />
+    <Content Include="bower_components\bootbox\.travis.yml" />
+    <Content Include="bower_components\bootbox\bower.json" />
+    <Content Include="bower_components\bootbox\composer.json" />
+    <Content Include="bower_components\bootbox\CONTRIBUTING.md" />
+    <Content Include="bower_components\bootbox\dist\bootbox.zip" />
+    <Content Include="bower_components\bootbox\LICENSE.md" />
+    <Content Include="bower_components\bootbox\package-lock.json" />
+    <Content Include="bower_components\bootbox\package.json" />
+    <Content Include="bower_components\bootbox\README.md" />
+    <Content Include="bower_components\ngBootbox\.bower.json" />
+    <Content Include="bower_components\ngBootbox\bower.json" />
+    <Content Include="bower_components\ngBootbox\package.json" />
+    <Content Include="bower_components\ngBootbox\README.md" />
+    <Content Include="bower_components\ngBootbox\tsd.json" />
     <None Include="packages.config" />
     <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
@@ -1027,11 +1102,20 @@
       <Name>NTShop.Service</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="bower_components\ngBootbox\typings\angularjs\angular.d.ts" />
+    <TypeScriptCompile Include="bower_components\ngBootbox\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="bower_components\ngBootbox\typings\tsd.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
