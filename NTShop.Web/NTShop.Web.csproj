@@ -222,6 +222,8 @@
     <Content Include="app\components\product_categories\productCategories.module.js" />
     <Content Include="app\components\product_categories\productCategoryAddController.js" />
     <Content Include="app\components\product_categories\productCategoryAddView.html" />
+    <Content Include="app\components\product_categories\productCategoryEditController.js" />
+    <Content Include="app\components\product_categories\productCategoryEditView.html" />
     <Content Include="app\components\product_categories\productCategoryListController.js" />
     <Content Include="app\components\product_categories\productCategoryListView.html" />
     <Content Include="app\shared\directives\pagerDirective.html" />
@@ -229,6 +231,7 @@
     <Content Include="app\shared\filters\statusFilter.js" />
     <Content Include="app\shared\modules\ntshop.common.js" />
     <Content Include="app\shared\service\apiService.js" />
+    <Content Include="app\shared\service\commonService.js" />
     <Content Include="app\shared\service\notificationService.js" />
     <Content Include="Assets\admin\css\AdminLTE.css" />
     <Content Include="Assets\admin\css\AdminLTE.min.css" />
