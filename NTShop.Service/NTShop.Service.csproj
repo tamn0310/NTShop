@@ -49,6 +49,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NTShop.Common\NTShop.Common.csproj">
+      <Project>{1B996322-0AF2-4FF1-A7FD-83EAE20B4CE4}</Project>
+      <Name>NTShop.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NTShop.Data\NTShop.Data.csproj">
       <Project>{26be764b-e1b6-4a9f-aa7b-371b777a8e7c}</Project>
       <Name>NTShop.Data</Name>

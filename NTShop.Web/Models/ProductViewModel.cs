@@ -32,6 +32,8 @@ namespace NTShop.Web.Models
 
         public int? ViewCount { get; set; }
 
+        public string Tags { get; set; }
+
         public virtual ProductCategoryViewModel ProductCategory { get; set; }
 
         public DateTime? CreatedDate { get; set; }

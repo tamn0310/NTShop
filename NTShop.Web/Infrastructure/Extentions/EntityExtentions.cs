@@ -81,6 +81,8 @@ namespace NTShop.Web.Infrastructure.Extentions
             product.Warrantly = productVm.Warrantly;
             product.HomeFlag = productVm.HomeFlag;
             product.HotFlag = productVm.HotFlag;
+            product.ViewCount = productVm.ViewCount;
+            product.Tags = productVm.Tags;
            
             product.CreatedDate = productVm.CreatedDate;
             product.CreatedBy = productVm.CreatedBy;

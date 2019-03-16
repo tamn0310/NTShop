@@ -45,6 +45,8 @@ namespace NTShop.Model.Models
 
         public int? ViewCount { get; set; }
 
+        public string Tags { get; set; }
+
         [ForeignKey("CategoryID")]
         public virtual ProductCategory ProductCategory { get; set; }
     }
