@@ -40,6 +40,13 @@
                 console.log('Không thể lấy ra được danh sách danh mục cha');
             });
         }
+        $scope.ChooseImage = function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (filrUrl) {
+                $scope.product.Image = filrUrl;
+            }
+            finder.popup();
+        }
 
         loadProductCategory();
     }
