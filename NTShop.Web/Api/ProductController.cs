@@ -15,6 +15,7 @@ using System.Web.Script.Serialization;
 namespace NTShop.Web.Api
 {
     [RoutePrefix("api/product")]
+
     public class ProductController : ApiControllerBase
     {
         #region Initialize
@@ -101,6 +102,7 @@ namespace NTShop.Web.Api
                     var newProduct = new Product();
                     newProduct.UpdateProduct(productVm);
                     newProduct.CreatedDate = DateTime.Now;
+                    newProduct.CreatedBy = User.Identity.Name;
                     _productService.Add(newProduct);
                     _productService.Save();
 
@@ -130,6 +132,7 @@ namespace NTShop.Web.Api
                     dbProduct.UpdateProduct(productVm);
                     dbProduct.UpdatedDate = DateTime.Now;
 
+                    dbProduct.UpdatedBy = User.Identity.Name;
                     _productService.Update(dbProduct);
                     _productService.Save();
 

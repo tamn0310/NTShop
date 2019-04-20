@@ -11,6 +11,7 @@
 
     <!-- Theme style -->
     <link href="~/bower_components/toastr/toastr.css" rel="stylesheet" />
+    <link href="~/bower_components/angular-loading-bar/build/loading-bar.css" rel="stylesheet" />
     <link href="~/Assets/admin/css/AdminLTE.min.css" rel="stylesheet" />
     <link href="~/Assets/admin/css/custom.css" rel="stylesheet" />
 
@@ -33,14 +34,11 @@
     <!-- jquery 3.3.1 -->
     <script src="~/bower_components/jquery/dist/jquery.js"></script>
     <!-- Bootstrap 4.3.1 -->
-
     <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <!-- SlimScroll -->
-
     <script src="/bower_components/slimscroll/jquery.slimscroll.js"></script>
     <!-- FastClick -->
     <script src="/bower_components/fastclick/lib/fastclick.js"></script>
-
     <!-- AdminLTE App -->
     <script src="/Assets/admin/js/app.min.js"></script>
 
@@ -53,22 +51,25 @@
     <script src="~/bower_components/ckeditor/ckeditor.js"></script>
     <script src="~/bower_components/ng-ckeditor/ng-ckeditor.js"></script>
     <script src="~/bower_components/ckfinder/ckfinder.js"></script>
-    <script>
+    <script src="~/bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="~/bower_components/angular-loading-bar/build/loading-bar.js"></script>
+    @*<script>
         $(document).ready(function () {
             $('.sidebar-menu').tree()
-        })</script>
+        })</script>*@
 
     <script src="~/app/shared/modules/ntshop.common.js"></script>
     <script src="~/app/shared/filters/statusFilter.js"></script>
-
     <script src="~/app/shared/service/apiService.js"></script>
     <script src="~/app/shared/service/notificationService.js"></script>
     <script src="~/app/shared/directives/pagerDirective.js"></script>
+    <script src="~/app/shared/service/authData.js"></script>
+    <script src="~/app/shared/service/authenticationService.js"></script>
+    <script src="~/app/shared/service/loginService.js"></script>
     <script src="~/app/shared/service/commonService.js"></script>
 
     <script src="~/app/components/products/products.module.js"></script>
     <script src="~/app/components/product_categories/productCategories.module.js"></script>
-
     <script src="~/app/app.js"></script>
     <script src="~/app/components/home/rootController.js"></script>
     <script src="~/app/components/product_categories/productCategoryListController.js"></script>
@@ -77,7 +78,6 @@
     <script src="~/app/components/products/productListController.js"></script>
     <script src="~/app/components/products/productAddController.js"></script>
     <script src="~/app/components/products/productEditController.js"></script>
-
     <script src="~/app/components/home/homeController.js"></script>
     <script src="~/app/components/login/loginController.js"></script>
 </body>
