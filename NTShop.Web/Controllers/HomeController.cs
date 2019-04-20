@@ -1,9 +1,23 @@
-﻿using System.Web.Mvc;
+﻿using AutoMapper;
+using NTShop.Model.Models;
+using NTShop.Service;
+using NTShop.Web.Models;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace NTShop.Web.Controllers
 {
     public class HomeController : Controller
     {
+        IProductCategoryService _productCategoryService;
+        ICommonService _commonService; 
+
+        public HomeController(IProductCategoryService productCategoryService, ICommonService commonService)
+        {
+            this._productCategoryService = productCategoryService;
+            this._commonService = commonService;
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -26,7 +40,9 @@ namespace NTShop.Web.Controllers
         [ChildActionOnly]
         public ActionResult Footer()
         {
-            return PartialView();
+            var footerModel = _commonService.GetFooter();
+            var footerViewModel = Mapper.Map<Footer, FooterViewModel>(footerModel);
+            return PartialView(footerViewModel);
         }
 
         [ChildActionOnly]
@@ -38,7 +54,9 @@ namespace NTShop.Web.Controllers
         [ChildActionOnly]
         public ActionResult Category()
         {
-            return PartialView();
+            var model = _productCategoryService.GetAll();
+            var listProductCategoryViewModel = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(model);
+            return PartialView(listProductCategoryViewModel);
         }
     }
 }

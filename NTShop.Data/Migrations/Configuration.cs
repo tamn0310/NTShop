@@ -2,6 +2,7 @@
 {
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
+    using NTShop.Common;
     using NTShop.Model.Models;
     using System;
     using System.Collections.Generic;
@@ -29,8 +30,6 @@
                 Email = "tamn0310@gmail.com",
                 EmailConfirmed = true,
                 BirthDay = DateTime.Now,
-               
-
             };
 
             manager.Create(user, "tamn0310");
@@ -59,6 +58,13 @@
                 };
                 context.ProductCategories.AddRange(listProductCategory);
                 context.SaveChanges();
+            }
+        }
+
+        private void CreateFooter(NTShopDbContext context)
+        {
+            if (context.Footers.Count(x => x.ID == CommonConstants.DefaultFooterId) == 0) {
+                string content = "";
             }
         }
     }
