@@ -35,7 +35,7 @@ namespace NTShop.Web.Controllers
             homeViewModel.TopSaleProducts = topSaleProductViewModel;
             return View(homeViewModel);
         }
-
+        
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

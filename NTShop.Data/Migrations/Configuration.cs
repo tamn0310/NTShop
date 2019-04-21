@@ -18,6 +18,7 @@
 
         protected override void Seed(NTShop.Data.NTShopDbContext context)
         {
+            CreateUser(context);
             CreateProductCategorySample(context);
             CreateSlide(context);
         }
@@ -47,6 +48,8 @@
             var adminUser = manager.FindByEmail("tamn0310@gmail.com");
 
             manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
+
+            context.SaveChanges();
         }
 
         private void CreateProductCategorySample(NTShop.Data.NTShopDbContext context)
