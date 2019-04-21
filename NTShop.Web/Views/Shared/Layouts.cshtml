@@ -10,6 +10,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <title>NT Shop | Home </title>
     <link href="/Assets/client/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!--theme-style-->
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="/Assets/client/css/style.css" rel="stylesheet" type="text/css" media="all" />
     <!--//theme-style-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -22,23 +24,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 <body>
     <!--header-->
-   @{Html.RenderAction("Header", "Home");}
+    @{Html.RenderAction("Header", "Home");}
     <!---->
     <div class="container">
-       @RenderBody()
+        @RenderBody()
+        @{Html.RenderAction("Category", "Home");}
     </div>
-    @RenderSection("homeProduct", required: false) 
-    <!---->
-   
-    <div class="clearfix"> </div>
-    </div>
-    @{ Html.RenderAction("Category", "Home");}
-    <div class="clearfix"> </div>
-    </div>
-
     <!--Footer-->
     @{Html.RenderAction("Footer", "Home");}
+    <div class="clearfix"> </div>
 
-    @RenderSection("footerJS",required:false)
+    @RenderSection("footerJS", required: false)
 </body>
 </html>

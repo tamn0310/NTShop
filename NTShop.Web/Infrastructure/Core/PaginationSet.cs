@@ -16,7 +16,7 @@ namespace NTShop.Web.Infrastructure.Core
                 return (Items != null) ? Items.Count() : 0;
             }
         }
-
+        public int MaxPage { get; set; }
         public IEnumerable<T> Items { set; get; }
     }
 }
