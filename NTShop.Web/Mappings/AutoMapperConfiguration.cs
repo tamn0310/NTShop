@@ -1,10 +1,6 @@
 ﻿using AutoMapper;
 using NTShop.Model.Models;
 using NTShop.Web.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace NTShop.Web.Mappings
 {
@@ -19,6 +15,7 @@ namespace NTShop.Web.Mappings
             Mapper.CreateMap<Product, ProductViewModel>();
             Mapper.CreateMap<ProductTag, ProductTagViewModel>();
             Mapper.CreateMap<Footer, FooterViewModel>();
+            Mapper.CreateMap<Slide, SlideViewModel>();
         }
     }
 }

@@ -3,6 +3,7 @@ using NTShop.Data.Infrastructure;
 using NTShop.Data.Reponsitories;
 using NTShop.Model.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NTShop.Service
 {
@@ -17,6 +18,10 @@ namespace NTShop.Service
         IEnumerable<Product> GetAll();
 
         IEnumerable<Product> GetAll(string keyword);
+
+        IEnumerable<Product> GetLastest(int top);
+
+        IEnumerable<Product> GetHotProduct(int top);
 
         Product GetById(int id);
 
@@ -89,6 +94,16 @@ namespace NTShop.Service
         public Product GetById(int id)
         {
             return _productRepository.GetSingleById(id);
+        }
+
+        public IEnumerable<Product> GetHotProduct(int top)
+        {
+            return _productRepository.GetMulti(x => x.Status == true).OrderByDescending(x => x.CreatedDate).Take(top);
+        }
+
+        public IEnumerable<Product> GetLastest(int top)
+        {
+            return _productRepository.GetMulti(x => x.Status == true && x.HotFlag==true).OrderByDescending(x => x.CreatedDate).Take(top);  
         }
 
         public void Save()
