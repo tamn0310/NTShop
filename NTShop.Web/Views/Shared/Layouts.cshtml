@@ -11,7 +11,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <link href="/Assets/client/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!--theme-style-->
     <!--font awesome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link href="~/bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css" rel="stylesheet" />
     <link href="/Assets/client/css/style.css" rel="stylesheet" type="text/css" media="all" />
     <!--//theme-style-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -19,8 +20,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!--fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
     <!--//fonts-->
-    <script src="/Assets/client/js/jquery.min.js"></script>
-    <!--script-->
+
 </head>
 <body>
     <!--header-->
@@ -34,6 +34,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     @{Html.RenderAction("Footer", "Home");}
     <div class="clearfix"> </div>
 
+    <script src="/Assets/client/js/jquery.min.js"></script>
+    <!--script-->
+    <script src="~/bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/Assets/client/js/common.js"></script>
     @RenderSection("footerJS", required: false)
 </body>
 </html>
