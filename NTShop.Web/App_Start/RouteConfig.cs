@@ -42,6 +42,13 @@ namespace NTShop.Web
             );
 
             routes.MapRoute(
+                name: "TagList",
+                url: "tag/{tagId}.html",
+                defaults: new { controller = "Product", action = "ListByTag", tagid = UrlParameter.Optional },
+               namespaces: new string[] { "NTShop.Web.Controller" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

@@ -30,7 +30,16 @@ namespace NTShop.Service
         IEnumerable<string> GetListProductByName(string name);
 
         Product GetById(int id);
+
         IEnumerable<Product> GetReatedProducts(int id, int top);
+
+        void IncreaseView(int id);
+
+        IEnumerable<Product> GetListProductByTag(string tagId, int page, int pageSize, out int totalRow);
+
+        IEnumerable<Tag> GetListTagByProductId(int id);
+
+        Tag GetTag(string tagId);
 
         void Save();
     }
@@ -145,10 +154,37 @@ namespace NTShop.Service
             return _productRepository.GetMulti(x => x.Status == true && x.Name.Contains(name)).Select(y => y.Name);
         }
 
+        public IEnumerable<Product> GetListProductByTag(string tagId, int page, int pageSize, out int totalRow)
+        {
+            var model = _productRepository.GetListProductByTag(tagId, page, pageSize, out totalRow);
+
+            return model;
+        }
+
+        public IEnumerable<Tag> GetListTagByProductId(int id)
+        {
+            return _productTagReponsitory.GetMulti(x => x.ProductID == id, new string[] { "Tag" }).Select(y => y.Tag);
+        }
+
         public IEnumerable<Product> GetReatedProducts(int id, int top)
         {
             var product = _productRepository.GetSingleById(id);
-            return _productRepository.GetMulti(x => x.Status == true && x.ID!=id && x.CategoryID == product.CategoryID ).OrderByDescending(x => x.CreatedDate).Take(top);
+            return _productRepository.GetMulti(x => x.Status == true && x.ID != id && x.CategoryID == product.CategoryID).OrderByDescending(x => x.CreatedDate).Take(top);
+        }
+
+        public Tag GetTag(string tagId)
+        {
+            return _tagReponsitory.GetSingleByCondition(x => x.ID == tagId);
+        }
+
+        public void IncreaseView(int id)
+        {
+            var product = _productRepository.GetSingleById(id);
+            if (product.ViewCount.HasValue)
+
+                product.ViewCount += 1;
+            else
+                product.ViewCount = 1;
         }
 
         public void Save()
