@@ -49,5 +49,7 @@ namespace NTShop.Web.Models
         public string MateDescription { get; set; }
 
         public bool Status { set; get; }
+
+        public int Quantity { get; set; }
     }
 }

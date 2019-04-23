@@ -7,6 +7,7 @@ using NTShop.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace NTShop.Web.Controllers
 {
@@ -24,7 +25,15 @@ namespace NTShop.Web.Controllers
         // GET: Product
         public ActionResult Detail(int id)
         {
-            return View();
+            var productModel = _productService.GetById(id);
+            var viewModel = Mapper.Map<Product, ProductViewModel>(productModel);
+            var relatedProduct = _productService.GetReatedProducts(id, 6);
+            ViewBag.RelatedProducts = Mapper.Map<IEnumerable<Product>,IEnumerable<ProductViewModel>>(relatedProduct);
+
+
+            List<string> listImages = new JavaScriptSerializer().Deserialize<List<string>>(viewModel.MoreImages);
+            ViewBag.MorImages = listImages;
+            return View(viewModel);
         }
 
         public ActionResult Category(int id, int page = 1, string sort = "")

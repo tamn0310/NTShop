@@ -91,6 +91,7 @@ namespace NTShop.Web.Infrastructure.Extentions
             product.MateKeyword = productVm.MateKeyword;
             product.MateDescription = productVm.MateDescription;
             product.Status = productVm.Status;
+            product.Quantity = productVm.Quantity;
         }
     }
 }

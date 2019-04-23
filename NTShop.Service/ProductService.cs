@@ -30,6 +30,7 @@ namespace NTShop.Service
         IEnumerable<string> GetListProductByName(string name);
 
         Product GetById(int id);
+        IEnumerable<Product> GetReatedProducts(int id, int top);
 
         void Save();
     }
@@ -142,6 +143,12 @@ namespace NTShop.Service
         public IEnumerable<string> GetListProductByName(string name)
         {
             return _productRepository.GetMulti(x => x.Status == true && x.Name.Contains(name)).Select(y => y.Name);
+        }
+
+        public IEnumerable<Product> GetReatedProducts(int id, int top)
+        {
+            var product = _productRepository.GetSingleById(id);
+            return _productRepository.GetMulti(x => x.Status == true && x.ID!=id && x.CategoryID == product.CategoryID ).OrderByDescending(x => x.CreatedDate).Take(top);
         }
 
         public void Save()
