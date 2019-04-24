@@ -90,7 +90,7 @@
                 <ul class="taglist">
                     @foreach (var tag in (IEnumerable<NTShop.Web.Models.TagViewModel>)ViewBag.Tags)
                     {
-                        <li><a href="/tag/@(tag.ID).html">@(tag.Name),</a></li>
+                        <li><a href="/tag/@(tag.ID).html">@(tag.Name)</a></li>
 
                     }
                 </ul>

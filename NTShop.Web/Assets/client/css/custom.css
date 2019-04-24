@@ -1,6 +1,17 @@
 ﻿.tag {
-    display:block;
+    display: block;
 }
+
 .taglist li {
-    float:left;
+    float: left;
+    margin: 5px 6px;
+}
+
+.taglist li a {
+   padding: 10px;
+   display: block;
+}
+
+.taglist li a:hover {
+  background: #1DBAA5;
 }
