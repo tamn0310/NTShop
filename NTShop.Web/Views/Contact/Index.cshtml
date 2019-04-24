@@ -1,5 +1,5 @@
-﻿@model NTShop.Web.Models.ContactDetailViewModel
-
+﻿@model NTShop.Web.Models.FeedbackViewModel
+@using BotDetect.Web.Mvc;
 @{
     ViewBag.Title = "Liên hệ";
     Layout = "~/Views/Shared/Layouts.cshtml";
@@ -14,10 +14,11 @@
         height: 400px;
     }
 </style>
-<input type="hidden" id="hidAddress" value="@Model.Name<br />Điện thoại:@Model.Phone <br>Địa chỉ: @Model.Address" />
-<input type="hidden" id="hidLat" value="@Model.Lat" />
-<input type="hidden" id="hidLng" value="@Model.Lng" />
-<input type="hidden" id="hidName" value="@Model.Name" />
+<link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl" rel="stylesheet" type="text/css" />
+<input type="hidden" id="hidAddress" value="@Model.ContactDetail.Name<br />Điện thoại:@Model.ContactDetail.Phone <br>Địa chỉ: @Model.ContactDetail.Address" />
+<input type="hidden" id="hidLat" value="@Model.ContactDetail.Lat" />
+<input type="hidden" id="hidLng" value="@Model.ContactDetail.Lng" />
+<input type="hidden" id="hidName" value="@Model.ContactDetail.Name" />
 
 <div class="main">
 
@@ -25,12 +26,12 @@
         <div class="contact_right">
             <h3>Thông tin liên hệ</h3>
             <address class="address">
-                <p>@Model.Address</p>
+                <p>@Model.ContactDetail.Address</p>
                 <dl>
                     <dt> </dt>
-                    <dd>Tên shop: <span> @Model.Name</span></dd>
-                    <dd>Số điện thoại: <span> @Model.Phone</span></dd>
-                    <dd>E-mail:&nbsp; <a href="mailto:@(Model.Email)">@Model.Email</a></dd>
+                    <dd>Tên shop: <span> @Model.ContactDetail.Name</span></dd>
+                    <dd>Số điện thoại: <span> @Model.ContactDetail.Phone</span></dd>
+                    <dd>E-mail:&nbsp; <a href="mailto:@(Model.ContactDetail.Email)">@Model.ContactDetail.Email</a></dd>
                 </dl>
             </address>
             <div class="clear-fix"></div>
@@ -41,18 +42,29 @@
 
     <div class="reservation_top">
         <div class="contact_right">
-            <h3>Nhập thông tin cần liên hệ</h3>
+            <h3>Gửi thông tin liên hệ</h3>
             <div class="contact-form">
-                <form autocomplete="off" method="post" action="contact-post.html">
-                    <input type="text" class="textbox" value="Name" onfocus="this.value=
-									'';" onblur="if (this.value == '') {this.value= 'Name';}">
-                    <input type="text" class="textbox" value="Email" onfocus="this.value=
-									'';" onblur="if (this.value == '') {this.value= 'Email';}">
-                    <textarea value="Message" onfocus="this.value= '';" onblur="if
-									(this.value == '') {this.value= 'Message';}">Message</textarea>
-                    <input type="submit" value="Send">
-                    <div class="clearfix"> </div>
-                </form>
+                @using (Html.BeginForm("SendFeedback", "Contact", FormMethod.Post))
+                {
+                    if (ViewData["SuccessMsg"] != null)
+                    {
+                        <div class="alert alert-success" role="alert">
+                            <strong>Cám ơn bạn!! </strong> Gửi phản hồi thành công, cám ơn bạn rất nhiều ^^, chúng tôi sẽ sơm phản hồi lại.
+                            <br />Chúc bạn có một ngày tốt lành.
+                        </div>
+                    }
+                    @Html.ValidationSummary(false, "", new { @class = "error" });
+                    @Html.TextBoxFor(model => model.Name, new { @class = "textbox", @placeholder = "Nhập tên của bạn" });
+                    @Html.TextBoxFor(model => model.Email, new { @class = "textbox", @placeholder = "Nhập email của bạn" });
+                    @Html.TextAreaFor(model => model.Message, new { @placeholder = "Nhập lời nhắn" });
+
+                    MvcCaptcha contactCaptcha = new MvcCaptcha("contactCaptcha");
+                    @Html.Captcha(contactCaptcha)
+                    @Html.TextBox("CaptchaCode")
+
+                    <input type="submit" value="Gửi đi" />
+                    <div class="clearfix"></div>
+                }
             </div>
         </div>
     </div>

@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 
 namespace NTShop.Common
 {
-  public  class ConfigHelper
+    public class ConfigHelper
     {
-        public static string GetByKey(string key) {
+        public static string GetByKey(string key)
+        {
             return ConfigurationManager.AppSettings[key].ToString();
         }
     }

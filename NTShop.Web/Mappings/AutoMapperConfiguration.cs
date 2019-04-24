@@ -18,6 +18,7 @@ namespace NTShop.Web.Mappings
             Mapper.CreateMap<Slide, SlideViewModel>();
             Mapper.CreateMap<Page, PageViewModel>();
             Mapper.CreateMap<ContactDetail, ContactDetailViewModel>();
+            Mapper.CreateMap<Feedback, FeedbackViewModel>();
         }
     }
 }

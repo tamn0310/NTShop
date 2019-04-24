@@ -1,5 +1,6 @@
 ﻿using NTShop.Model.Models;
 using NTShop.Web.Models;
+using System;
 
 namespace NTShop.Web.Infrastructure.Extentions
 {
@@ -92,6 +93,14 @@ namespace NTShop.Web.Infrastructure.Extentions
             product.MateDescription = productVm.MateDescription;
             product.Status = productVm.Status;
             product.Quantity = productVm.Quantity;
+        }
+
+        public static void UpdateFeedback(this Feedback feedback, FeedbackViewModel feedbackVm) {
+            feedback.Name = feedbackVm.Name;
+            feedback.Email = feedbackVm.Email;
+            feedback.Message = feedbackVm.Message;
+            feedback.Status = feedbackVm.Status;
+            feedback.CreatedDate = DateTime.Now;
         }
     }
 }
