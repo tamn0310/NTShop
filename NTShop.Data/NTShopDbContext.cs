@@ -30,6 +30,8 @@ namespace NTShop.Data
         public DbSet<VisitorStatistic> VisitorStatistics { get; set; }
         public DbSet<Error> Errors { get; set; }
 
+        public DbSet<ContactDetail> ContactDetails { get; set; }
+
         public static NTShopDbContext Create()
         {
             return new NTShopDbContext();

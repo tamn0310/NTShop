@@ -22,6 +22,7 @@
             CreateProductCategorySample(context);
             CreateSlide(context);
             CreatePage(context);
+            CreateContactDetail(context);
         }
 
         private void CreateUser(NTShopDbContext context)
@@ -120,7 +121,7 @@
             {
                 var page = new Page()
                 {
-                    Name="Giới thiệu",
+                    Name = "Giới thiệu",
                     Alias = "gioi-thieu",
                     Content = @"Lorem Ipsum is simply dummy text of the printing and
                                 typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -132,6 +133,28 @@
                     Status = true
                 };
                 context.Pages.Add(page);
+                context.SaveChanges();
+            }
+        }
+
+        private void CreateContactDetail(NTShopDbContext context)
+        {
+            if (context.ContactDetails.Count() == 0)
+            {
+                var contactDetail = new ContactDetail()
+                {
+                    Name = "NTSHOP",
+                    Address = "Bình Dương - Bình Thành - Hương Trà - Huế",
+                    Phone = "0899918754",
+                    Email = "tamn0310@gmail.com",
+                    Lat = 16.3175313,
+                    Lng = 107.5149463,
+                    Website = "",
+                    Orther = "",
+
+                    Status = true
+                };
+                context.ContactDetails.Add(contactDetail);
                 context.SaveChanges();
             }
         }
