@@ -31,6 +31,13 @@ namespace NTShop.Web
               defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional },
               namespaces: new string[] { "NTShop.Web.Controller" }
           );
+
+            routes.MapRoute(
+             name: "Register",
+             url: "dang-ky.html",
+             defaults: new { controller = "Account", action = "Register", id = UrlParameter.Optional },
+             namespaces: new string[] { "NTShop.Web.Controller" }
+         );
             routes.MapRoute(
                name: "Page",
                url: "trang/{alias}.html",

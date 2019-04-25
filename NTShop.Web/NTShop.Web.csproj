@@ -233,6 +233,7 @@
     <Compile Include="Models\ProductCategoryViewModel.cs" />
     <Compile Include="Models\ProductTagViewModel.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
+    <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\SlideViewModel.cs" />
     <Compile Include="Models\TagViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -262,6 +263,12 @@
     <Content Include="app\shared\directives\pagerDirective.js" />
     <Content Include="app\shared\filters\statusFilter.js" />
     <Content Include="app\shared\modules\ntshop.common.js" />
+    <Content Include="app\shared\about\aboutAddController.js" />
+    <Content Include="app\shared\about\aboutAddView.html" />
+    <Content Include="app\shared\about\aboutEditController.js" />
+    <Content Include="app\shared\about\aboutEditView.html" />
+    <Content Include="app\shared\about\aboutListController.js" />
+    <Content Include="app\shared\about\aboutListView.html" />
     <Content Include="app\shared\service\apiService.js" />
     <Content Include="app\shared\service\authData.js" />
     <Content Include="app\shared\service\authenticationService.js" />
@@ -1946,6 +1953,7 @@
     <Content Include="Assets\client\js\jquery.min.js" />
     <Content Include="Assets\client\js\jquery.wmuSlider.js" />
     <Content Include="Assets\client\template\contact_template.html" />
+    <Content Include="Assets\client\template\newuser.html" />
     <Content Include="bower_components\angular-loading-bar\build\loading-bar.css" />
     <Content Include="bower_components\angular-loading-bar\build\loading-bar.js" />
     <Content Include="bower_components\angular-loading-bar\build\loading-bar.min.css" />
@@ -6604,7 +6612,6 @@
     <Folder Include="Scripts\plugins\" />
     <Folder Include="UploadFiles\" />
     <Folder Include="Views\About\" />
-    <Folder Include="Views\Account\" />
     <Folder Include="Views\Post\" />
   </ItemGroup>
   <ItemGroup>
@@ -7066,6 +7073,7 @@
     <Content Include="bower_components\jquery-ui\package.json" />
     <Content Include="bower_components\jquery-ui\README.md" />
     <Content Include="bower_components\jquery-ui\ui\.jshintrc" />
+    <Content Include="app\shared\about\about.module.js" />
     <None Include="packages.config" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\Layouts.cshtml" />
@@ -7079,6 +7087,7 @@
     <Content Include="Views\Product\ListByTag.cshtml" />
     <Content Include="Views\Page\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NTShop.Common\NTShop.Common.csproj">

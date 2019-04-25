@@ -2,6 +2,7 @@
     angular.module('ntshop',
         ['ntshop.products',
             'ntshop.product_categories',
+            'ntshop.about',
             'ntshop.common'])
         .config(config)
         .config(configAuthentication);
