@@ -40,6 +40,12 @@ ul.support li  label{
 ul.support li.van a label{
 	background-position: -46px -25px;
 }
+ul.support li.contact a label {
+    background-position: -46px -25px;
+}
+ul.support li.about a label {
+    background-position: -46px -25px;
+}
 ul.support li a {
 	text-decoration:none;
 	font-size: 1.1em;
@@ -63,7 +69,7 @@ ul.support li a {
 }
 .header-bottom-left{
 	float: left;
-	width: 55%;
+	width: 53%;
 }
 .logo{
 	float:left;
@@ -72,16 +78,16 @@ ul.support li a {
 }
 .header-bottom-right{
 	float: right;
-	width: 37%;
+	width: 46%;
 	text-align: center;
 	padding-top:1.7em;
 }
 .account,.cart{
 	float:left;
-	width:40%;
+	width:50%;
 }
 .cart{
-	width:24%;
+	width:60%;
 }
 .account a span{
 	background: url(../images/img-sprite.png)-117px -30px;
