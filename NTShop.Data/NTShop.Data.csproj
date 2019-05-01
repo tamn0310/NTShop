@@ -97,6 +97,14 @@
     <Compile Include="Migrations\201904241319084_addFeedback.Designer.cs">
       <DependentUpon>201904241319084_addFeedback.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905010300504_addCustomerId.cs" />
+    <Compile Include="Migrations\201905010300504_addCustomerId.Designer.cs">
+      <DependentUpon>201905010300504_addCustomerId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905010410423_editFullName.cs" />
+    <Compile Include="Migrations\201905010410423_editFullName.Designer.cs">
+      <DependentUpon>201905010410423_editFullName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NTShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -162,6 +170,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904241319084_addFeedback.resx">
       <DependentUpon>201904241319084_addFeedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905010300504_addCustomerId.resx">
+      <DependentUpon>201905010300504_addCustomerId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905010410423_editFullName.resx">
+      <DependentUpon>201905010410423_editFullName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

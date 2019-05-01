@@ -84,7 +84,7 @@ namespace NTShop.Web.Infrastructure.Extentions
             product.HotFlag = productVm.HotFlag;
             product.ViewCount = productVm.ViewCount;
             product.Tags = productVm.Tags;
-           
+
             product.CreatedDate = productVm.CreatedDate;
             product.CreatedBy = productVm.CreatedBy;
             product.UpdatedDate = productVm.UpdatedDate;
@@ -95,12 +95,27 @@ namespace NTShop.Web.Infrastructure.Extentions
             product.Quantity = productVm.Quantity;
         }
 
-        public static void UpdateFeedback(this Feedback feedback, FeedbackViewModel feedbackVm) {
+        public static void UpdateFeedback(this Feedback feedback, FeedbackViewModel feedbackVm)
+        {
             feedback.Name = feedbackVm.Name;
             feedback.Email = feedbackVm.Email;
             feedback.Message = feedbackVm.Message;
             feedback.Status = feedbackVm.Status;
             feedback.CreatedDate = DateTime.Now;
+        }
+
+        public static void UpdateOrder(this Order order, OrderViewModel orderVm)
+        {
+            order.CustomerName = orderVm.CustomerName;
+            order.CustomerAddress = orderVm.CustomerAddress;
+            order.CustomerEmail = orderVm.CustomerEmail;
+            order.CustomerMobile = orderVm.CustomerMobile;
+            order.CustomerMessage = orderVm.CustomerMessage;
+            order.PaymentMethod = orderVm.PaymentMethod;
+            order.CreatedDate = DateTime.Now;
+            order.CreateBy = orderVm.CreateBy;
+            order.Status = orderVm.Status;
+            order.CustomerId = orderVm.CustomerId;
         }
     }
 }

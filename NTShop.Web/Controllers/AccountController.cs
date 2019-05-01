@@ -119,7 +119,7 @@ namespace NTShop.Web.Controllers
                     Email = model.Email,
                     EmailConfirmed = true,
                     BirthDay = DateTime.Now,
-                    FuulName = model.FullName,
+                    FullName = model.FullName,
                     PhoneNumber = model.PhoneNumber,
                     Address = model.Address
                 };
@@ -130,7 +130,7 @@ namespace NTShop.Web.Controllers
                     await _userManager.AddToRolesAsync(user.Id, new string[] { "User" });
 
                 string content = System.IO.File.ReadAllText(Server.MapPath("/Assets/client/template/newuser.html"));
-                content = content.Replace("{{UserName}}", adminUser.FuulName);
+                content = content.Replace("{{UserName}}", adminUser.FullName);
                 content = content.Replace("{{Link}}", ConfigHelper.GetByKey("CurentLink") + "dang-nhap.html");
 
                 MailHelper.SendMail(adminUser.Email, "Đăng ký thành công", content);

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace NTShop.Model.Models
     public class ApplicationUser : IdentityUser
     {
         [MaxLength(256)]
-        public string FuulName { get; set; }
+        public string FullName { get; set; }
 
         [MaxLength(256)]
         public string Address { get; set; }
@@ -24,5 +25,7 @@ namespace NTShop.Model.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public virtual IEnumerable<Order> Orders { get; set; }
     }
 }

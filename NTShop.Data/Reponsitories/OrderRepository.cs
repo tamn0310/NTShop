@@ -7,7 +7,7 @@ namespace NTShop.Data.Reponsitories
 
     public class OrderRepository : RepositoryBase<Order>, IOrderRepository
     {
-        private OrderRepository(IDbFactory dbFactory) : base(dbFactory)
+        public OrderRepository(IDbFactory dbFactory) : base(dbFactory)
         {
         }
     }
