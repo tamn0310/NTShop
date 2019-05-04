@@ -4,7 +4,7 @@
     productListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox', '$filter'];
 
     function productListController($scope, apiService, notificationService, $ngBootbox, $filter) {
-        $scope.getProducts = [];
+        $scope.products = [];
         $scope.page = 0;
         $scope.pagesCount = 0;
         $scope.getProducts = getProducts;
@@ -29,10 +29,10 @@
                 }
             }
             apiService.del('/api/product/deletemulti', config, function (result) {
-                notificationService.displaySuccess('Xoá thành công ' + result.data + ' bản ghi');
+                notificationService.displaySuccess('Xóa thành công ' + result.data + ' bản ghi.');
                 search();
             }, function (error) {
-                notificationService.displayError('Xóa không thành công.');
+                notificationService.displayError('Xóa không thành công');
             });
         }
 
@@ -49,7 +49,6 @@
                 });
                 $scope.isAll = false;
             }
-
         }
 
         $scope.$watch("products", function (n, o) {
@@ -61,7 +60,6 @@
                 $('#btnDelete').attr('disabled', 'disabled');
             }
         }, true);
-
 
         function deleteProduct(id) {
             $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
@@ -96,7 +94,6 @@
                 if (result.data.TotalCount == 0) {
                     notificationService.displayWarning('Không có bản ghi nào được tìm thấy.');
                 }
-
                 $scope.products = result.data.Items;
                 $scope.page = result.data.Page;
                 $scope.pagesCount = result.data.TotalPages;
@@ -105,6 +102,7 @@
                 console.log('Load product failed.');
             });
         }
+
         $scope.getProducts();
     }
 })(angular.module('ntshop.products'));

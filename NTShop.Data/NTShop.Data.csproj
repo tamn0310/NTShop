@@ -105,9 +105,21 @@
     <Compile Include="Migrations\201905010410423_editFullName.Designer.cs">
       <DependentUpon>201905010410423_editFullName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905011212505_RenameTableIdentity.cs" />
+    <Compile Include="Migrations\201905011212505_RenameTableIdentity.Designer.cs">
+      <DependentUpon>201905011212505_RenameTableIdentity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905011236128_AddUserGroup.cs" />
+    <Compile Include="Migrations\201905011236128_AddUserGroup.Designer.cs">
+      <DependentUpon>201905011236128_AddUserGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NTShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reponsitories\ApplicationGroupRepository.cs" />
+    <Compile Include="Reponsitories\ApplicationRoleGroupRepository.cs" />
+    <Compile Include="Reponsitories\ApplicationRoleRepository.cs" />
+    <Compile Include="Reponsitories\ApplicationUserGroupRepository.cs" />
     <Compile Include="Reponsitories\ContactDetailRepository.cs" />
     <Compile Include="Reponsitories\ErrorRepository.cs" />
     <Compile Include="Reponsitories\FeedbackRepository.cs" />
@@ -176,6 +188,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905010410423_editFullName.resx">
       <DependentUpon>201905010410423_editFullName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905011212505_RenameTableIdentity.resx">
+      <DependentUpon>201905011212505_RenameTableIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905011236128_AddUserGroup.resx">
+      <DependentUpon>201905011236128_AddUserGroup.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

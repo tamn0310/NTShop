@@ -33,6 +33,11 @@ namespace NTShop.Data
         public DbSet<ContactDetail> ContactDetails { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
 
+        public DbSet<ApplicationGroup> ApplicationGroups { get; set; }
+        public DbSet<ApplicationRole> ApplicationRoles { get; set; }
+        public DbSet<ApplicationRoleGroup> ApplicationRoleGroups { get; set; }
+        public DbSet<ApplicationUserGroup> ApplicationUserGroups { get; set; }
+
         public static NTShopDbContext Create()
         {
             return new NTShopDbContext();
@@ -40,8 +45,10 @@ namespace NTShop.Data
 
         protected override void OnModelCreating(DbModelBuilder Builder)
         {
-            Builder.Entity<IdentityUserRole>().HasKey(i => new { i.UserId, i.RoleId});
-            Builder.Entity<IdentityUserLogin>().HasKey(i => i.UserId);
+            Builder.Entity<IdentityUserRole>().HasKey(i => new { i.UserId, i.RoleId }).ToTable("ApplicationUserRoles");
+            Builder.Entity<IdentityUserLogin>().HasKey(i => i.UserId).ToTable("ApplicationUserLogins");
+            Builder.Entity<IdentityUserClaim>().HasKey(i => i.UserId).ToTable("ApplicationUserClaims");
+            Builder.Entity<IdentityRole>().ToTable("ApplicationRoles");
         }
     }
 }

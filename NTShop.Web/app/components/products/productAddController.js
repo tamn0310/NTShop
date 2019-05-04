@@ -6,11 +6,10 @@
     function productAddController(apiService, $scope, notificationService, $state, commonService) {
         $scope.product = {
             CreatedDate: new Date(),
-            Status: true
+            Status: true,
         }
-
         $scope.ckeditorOptions = {
-            language: 'vi',
+            languague: 'vi',
             height: '200px'
         }
         $scope.AddProduct = AddProduct;
@@ -20,6 +19,7 @@
         function GetSeoTitle() {
             $scope.product.Alias = commonService.getSeoTitle($scope.product.Name);
         }
+
 
         function AddProduct() {
             $scope.product.MoreImages = JSON.stringify($scope.moreImages)
@@ -31,36 +31,36 @@
                     notificationService.displayError('Thêm mới không thành công.');
                 });
         }
-
         function loadProductCategory() {
             apiService.get('/api/productcategory/getallparents', null, function (result) {
                 $scope.productCategories = result.data;
             }, function () {
-                console.log('Không thể lấy ra được danh sách danh mục cha');
+                console.log('Cannot get list parent');
             });
         }
         $scope.ChooseImage = function () {
             var finder = new CKFinder();
-            finder.selectActionFunction = function (filrUrl) {
+            finder.selectActionFunction = function (fileUrl) {
                 $scope.$apply(function () {
-                    $scope.product.Image = filrUrl;
+                    $scope.product.Image = fileUrl;
                 })
-               
             }
             finder.popup();
         }
 
         $scope.moreImages = [];
+
         $scope.ChooseMoreImage = function () {
             var finder = new CKFinder();
             finder.selectActionFunction = function (fileUrl) {
                 $scope.$apply(function () {
                     $scope.moreImages.push(fileUrl);
                 })
-              
+
             }
             finder.popup();
         }
         loadProductCategory();
     }
+
 })(angular.module('ntshop.products'));

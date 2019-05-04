@@ -15,7 +15,8 @@
                 phone: {
                     required: true,
                     number: true
-                }
+                },
+                message:"required"
             },
             messages: {
                 name: "Bạn phải nhập tên.",
@@ -27,7 +28,8 @@
                 phone: {
                     required: "Bạn phải nhập số điện thoại.",
                     number: "Số điện thoại không đúng định dạng, bạn vui lòng nhập lại."
-                }
+                },
+                message:"Bạn chưa để lại lời nhắn, hãy để lại lời nhắn của bạn."
             }
         });
         $('.btnDeleteItem').off('click').on('click', function (e) {

@@ -1,18 +1,18 @@
 ﻿(function (app) {
-    app.controller('productListController', productListController);
+    app.controller('productCategoryListController', productCategoryListController);
 
-    productListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox', '$filter'];
+    productCategoryListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox','$filter'];
 
-    function productListController($scope, apiService, notificationService, $ngBootbox, $filter) {
-        $scope.getProducts = [];
+    function productCategoryListController($scope, apiService, notificationService, $ngBootbox, $filter) {
+        $scope.productCategories = [];
         $scope.page = 0;
         $scope.pagesCount = 0;
-        $scope.getProducts = getProducts;
+        $scope.getProductCategories = getProductCategories;
         $scope.keyword = '';
 
         $scope.search = search;
 
-        $scope.deleteProduct = deleteProduct;
+        $scope.deleteProductCategory = deleteProductCategory;
 
         $scope.selectAll = selectAll;
 
@@ -25,11 +25,11 @@
             });
             var config = {
                 params: {
-                    checkedProducts: JSON.stringify(listId)
+                    checkedProductCategories: JSON.stringify(listId)
                 }
             }
-            apiService.del('/api/product/deletemulti', config, function (result) {
-                notificationService.displaySuccess('Xoá thành công ' + result.data + ' bản ghi');
+            apiService.del('/api/productcategory/deletemulti', config, function (result) {
+                notificationService.displaySuccess('Xoá thanhd công ' + result.data + ' bản ghi');
                 search();
             }, function (error) {
                 notificationService.displayError('Xóa không thành công.');
@@ -39,12 +39,12 @@
         $scope.isAll = false;
         function selectAll() {
             if ($scope.isAll === false) {
-                angular.forEach($scope.products, function (item) {
+                angular.forEach($scope.productCategories, function (item) {
                     item.checked = true;
                 });
                 $scope.isAll = true;
             } else {
-                angular.forEach($scope.products, function (item) {
+                angular.forEach($scope.productCategories, function (item) {
                     item.checked = false;
                 });
                 $scope.isAll = false;
@@ -52,7 +52,7 @@
 
         }
 
-        $scope.$watch("products", function (n, o) {
+        $scope.$watch("productCategories", function (n, o) {
             var checked = $filter("filter")(n, { checked: true });
             if (checked.length) {
                 $scope.selected = checked;
@@ -63,14 +63,14 @@
         }, true);
 
 
-        function deleteProduct(id) {
+        function deleteProductCategory(id) {
             $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
                 var config = {
                     params: {
                         id: id
                     }
                 }
-                apiService.del('/api/product/delete', config, function () {
+                apiService.del('/api/productcategory/delete', config, function () {
                     notificationService.displaySuccess('Xóa thành công');
                     search();
                 }, function () {
@@ -80,10 +80,10 @@
         }
 
         function search() {
-            getProducts();
+            getProductCategories();
         }
 
-        function getProducts(page) {
+        function getProductCategories(page) {
             page = page || 0;
             var config = {
                 params: {
@@ -92,19 +92,19 @@
                     pageSize: 20
                 }
             }
-            apiService.get('/api/product/getall', config, function (result) {
+            apiService.get('/api/productcategory/getall', config, function (result) {
                 if (result.data.TotalCount == 0) {
                     notificationService.displayWarning('Không có bản ghi nào được tìm thấy.');
                 }
 
-                $scope.products = result.data.Items;
+                $scope.productCategories = result.data.Items;
                 $scope.page = result.data.Page;
                 $scope.pagesCount = result.data.TotalPages;
                 $scope.totalCount = result.data.TotalCount;
             }, function () {
-                console.log('Load product failed.');
+                console.log('Load productcategory failed.');
             });
         }
-        $scope.getProducts();
+        $scope.getProductCategories();
     }
-})(angular.module('ntshop.about'));
+})(angular.module('ntshop.product_categories'));
