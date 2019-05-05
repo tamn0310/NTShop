@@ -42,6 +42,8 @@ namespace NTShop.Service
         Tag GetTag(string tagId);
 
         void Save();
+
+        bool SellProduct(int productId, int quantity);
     }
 
     public class ProductService : IProductService
@@ -217,6 +219,16 @@ namespace NTShop.Service
 
             totalRow = query.Count();
             return query.Skip((page - 1) * pageSize).Take(pageSize);
+        }
+
+        //selling product
+        public bool SellProduct(int productId, int quantity)
+        {
+            var product = _productRepository.GetSingleById(productId);
+            if (product.Quantity < quantity)
+                return false;
+            product.Quantity -= quantity;
+            return true;
         }
 
         public void Update(Product Product)

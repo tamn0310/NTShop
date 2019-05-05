@@ -44,6 +44,9 @@
                     if (response.status) {
                         alert('Thêm sản phẩm thành công, kiểm tra trong giỏ hàng của bạn.');
                     }
+                    else {
+                        alert(response.message);
+                    }
                 }
             });
         });

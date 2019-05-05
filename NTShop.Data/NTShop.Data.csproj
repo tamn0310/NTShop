@@ -113,6 +113,14 @@
     <Compile Include="Migrations\201905011236128_AddUserGroup.Designer.cs">
       <DependentUpon>201905011236128_AddUserGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905041328435_ChangeOrderDetail.cs" />
+    <Compile Include="Migrations\201905041328435_ChangeOrderDetail.Designer.cs">
+      <DependentUpon>201905041328435_ChangeOrderDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905051413449_RevenusStaticSP.cs" />
+    <Compile Include="Migrations\201905051413449_RevenusStaticSP.Designer.cs">
+      <DependentUpon>201905051413449_RevenusStaticSP.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NTShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -194,6 +202,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905011236128_AddUserGroup.resx">
       <DependentUpon>201905011236128_AddUserGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905041328435_ChangeOrderDetail.resx">
+      <DependentUpon>201905041328435_ChangeOrderDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905051413449_RevenusStaticSP.resx">
+      <DependentUpon>201905051413449_RevenusStaticSP.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

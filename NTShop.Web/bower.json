@@ -18,7 +18,8 @@
     "jquery-ui": "1.12.1",
     "mustache": "~2.2.1",
     "numeral": "~2.0.6",
-    "jquery-validation": "~1.19.0"
+    "jquery-validation": "~1.19.0",
+    "angular-chart.js": "~1.1.1"
   },
   "resolutions": {
     "jquery": "~3.3.1",

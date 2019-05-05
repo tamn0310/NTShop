@@ -84,6 +84,7 @@ namespace NTShop.Web.Infrastructure.Extentions
             product.HotFlag = productVm.HotFlag;
             product.ViewCount = productVm.ViewCount;
             product.Tags = productVm.Tags;
+            product.OriginalPrice = productVm.OriginalPrice;
 
             product.CreatedDate = productVm.CreatedDate;
             product.CreatedBy = productVm.CreatedBy;

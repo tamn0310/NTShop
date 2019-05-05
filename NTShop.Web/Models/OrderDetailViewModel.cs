@@ -7,5 +7,7 @@
         public int ProductID { get; set; }
 
         public int Quantitty { get; set; }
+
+        public decimal Price { get; set; }
     }
 }

@@ -30,6 +30,8 @@ namespace NTShop.Model.Models
 
         public decimal Price { set; get; }
 
+        public decimal OriginalPrice { get; set; }
+
         public decimal? PromotionPrice { set; get; }
 
         public int? Warrantly { set; get; }

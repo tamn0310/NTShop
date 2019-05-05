@@ -75,29 +75,57 @@ namespace NTShop.Web.Controllers
 
             var cart = (List<ShoppingCartViewModel>)Session[CommonConstants.SessionCart];
             List<OrderDetail> orderDetails = new List<OrderDetail>();
+            bool isEnough = true;
             foreach (var item in cart)
             {
                 var detail = new OrderDetail();
                 detail.ProductID = item.ProductId;
-                detail.Quantitty = item.Quantity;
+                detail.Quantity = item.Quantity;
+                detail.Price = item.Product.Price;
                 orderDetails.Add(detail);
+                isEnough = _productService.SellProduct(item.ProductId, item.Quantity);
+                break;
             }
 
-            _orderService.Create(orderNew, orderDetails);
-            return Json(new
+            if (isEnough)
             {
-                status = true
-            });
+                _orderService.Create(orderNew, orderDetails);
+                _productService.Save();
+
+                return Json(new
+                {
+                    status = true
+                });
+            }
+            else
+            {
+                return Json(new
+                {
+                    status = false,
+                    message = "Không đủ hàng trong kho."
+                });
+            }
         }
 
         [HttpPost]
         public JsonResult Add(int productId)
         {
             var cart = (List<ShoppingCartViewModel>)Session[CommonConstants.SessionCart];
+            var product = _productService.GetById(productId);
             if (cart == null)
             {
                 cart = new List<ShoppingCartViewModel>();
             }
+
+            if (product.Quantity == 0)
+            {
+                return Json(new
+                {
+                    status = false,
+                    message = "Xin lỗi quý khách, sản phẩm này hiện đang hết hàng!"
+                });
+            }
+
             if (cart.Any(x => x.ProductId == productId))
             {
                 foreach (var item in cart)
@@ -112,7 +140,6 @@ namespace NTShop.Web.Controllers
             {
                 ShoppingCartViewModel newItem = new ShoppingCartViewModel();
                 newItem.ProductId = productId;
-                var product = _productService.GetById(productId);
                 newItem.Product = Mapper.Map<Product, ProductViewModel>(product);
                 newItem.Quantity = 1;
                 cart.Add(newItem);
