@@ -67,6 +67,12 @@ namespace NTShop.Web
                 defaults: new { controller = "Product", action = "Detail", id = UrlParameter.Optional },
                namespaces: new string[] { "NTShop.Web.Controller" }
             );
+            routes.MapRoute(
+                name: "Product All",
+                url: "san-pham.html",
+                defaults: new { controller = "Product", action = "Index", id = UrlParameter.Optional },
+               namespaces: new string[] { "NTShop.Web.Controller" }
+            );
 
             routes.MapRoute(
                 name: "TagList",

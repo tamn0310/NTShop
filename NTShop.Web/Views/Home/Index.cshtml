@@ -1,7 +1,9 @@
 ﻿@model NTShop.Web.Models.HomeViewModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Model.Title;
+    ViewBag.Metakeyword = Model.Metakeyword;
+    ViewBag.MetaDescription = Model.MetaDescription;
     Layout = "~/Views/Shared/Layouts.cshtml";
 }
 @section footerJS{
@@ -50,7 +52,7 @@
         {
             var url = "/" + product.Alias + ".p-" + product.ID + ".html";
             <div class="col-md-4 chain-grid grid-top-chain">
-                <a href="@url"><img class="img-responsive" src="@product.Image" /></a>
+                <a href="@url"><img class="img-responsive chain" width="179" height="334" src="@product.Image" /></a>
                 <span class="star"> </span>
                 <div class="grid-chain-bottom">
                     <h6><a href="@url">@product.Name</a></h6>
@@ -93,7 +95,7 @@
         {
             var url = "/" + product.Alias + ".p-" + product.ID + ".html";
             <div class="col-md-4 chain-grid grid-top-chain">
-                <a href="@url"><img class="img-responsive" src="@product.Image" /></a>
+                <a href="@url"><img class="img-responsive" width="179" height="334" src="@product.Image" /></a>
                 <span class="star"> </span>
                 <div class="grid-chain-bottom">
                     <h6><a href="@url">@product.Name</a></h6>

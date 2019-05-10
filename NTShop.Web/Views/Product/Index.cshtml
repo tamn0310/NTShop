@@ -1,32 +1,25 @@
 ﻿@model  NTShop.Web.Infrastructure.Core.PaginationSet<NTShop.Web.Models.ProductViewModel>
-
 @{
-    var category = (NTShop.Web.Models.ProductCategoryViewModel)ViewBag.Category;
-    var pageIndex = Model.Page;
-    ViewBag.Title = pageIndex == 1 ? category.Name : category.Name + " - Trang" + pageIndex;
-    ViewBag.Metakeyword = pageIndex == 1 ? category.MateKeyword : category.MateKeyword + " - Trang" + pageIndex;
-    ViewBag.MetaDescription = pageIndex == 1 ? category.MateDescription : category.MateDescription + " - Trang" + pageIndex;
+    ViewBag.Title = "Tất cả sản phẩm";
     Layout = "~/Views/Shared/Layouts.cshtml";
-
 }
-
 <div class="women-product">
-    <div class="w_content">
-        <div class="women">
-            <a href="@(category.Alias).pc-@(category.ID).html"><h4>@category.Name - <span>@Model.TotalCount sản phẩm</span> </h4></a>
-            <ul class="w_nav">
-                <li>Sort : </li>
-                <li><a class="active" href="?page=@Model.Page&sort=popular">Phổ biến</a></li> |
-                <li><a href="?page=@Model.Page&sort=new">Mới </a></li> |
-                <li><a href="?page=@Model.Page&sort=discount">Giảm giá</a></li> |
-                <li><a href="?page=@Model.Page&sort=price">Từ thấp -> cao </a></li>
-                <div class="clearfix"> </div>
-            </ul>
-            <div class="clearfix"> </div>
-        </div>
-    </div>
     @if (Model.Count > 0)
     {
+        <div class="w_content">
+            <div class="women">
+                <a href=""><h4>có  <span>@Model.TotalCount sản phẩm</span> </h4></a>
+                <ul class="w_nav">
+                    <li>Sort : </li>
+                    <li><a class="active" href="?page=@Model.Page&sort=popular">Phổ biến</a></li> |
+                    <li><a href="?page=@Model.Page&sort=new">Mới </a></li> |
+                    <li><a href="?page=@Model.Page&sort=discount">Giảm giá</a></li> |
+                    <li><a href="?page=@Model.Page&sort=price">Giá từ thấp đến cao </a></li>
+                    <div class="clearfix"> </div>
+                </ul>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
 
         <div class="grid-product">
             @foreach (var product in Model.Items)
@@ -36,7 +29,7 @@
                     <div class="content_box">
                         <a href="@url">
                             <div class="left-grid-view grid-view-left">
-                                <img src="@product.Image" class="img-responsive watch-right" width="210" height="285" alt="@product.Name" />
+                                <img src="@product.Image" class="img-responsive watch-right"  width="210" height="285" alt="@product.Name" />
                                 <div class="mask">
                                     <div class="info">Xem nhanh</div>
                                 </div>
@@ -106,6 +99,9 @@
     }
     else
     {
-        <div class="text-center">Hiện chưa có sản phẩm nào, chúng tôi sẽ cập hật sản phẩm nhanh nhất có thể.</div>
+        <div class="text-center">Không có sản phẩm nào được tìm thấy!!</div>
     }
 </div>
+
+
+

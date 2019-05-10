@@ -22,7 +22,28 @@ namespace NTShop.Web.Controllers
             this._producrCategoryService = productCategoryService;
         }
 
+        [OutputCache(Duration = 60, Location = System.Web.UI.OutputCacheLocation.Client)]
+        public ActionResult Index(int page = 1, string sort = "")
+        {
+            int pageSize = int.Parse(ConfigHelper.GetByKey("PageSize"));
+            int totalRow = 0;
+            var productModel = _productService.GetAllProduct( page, pageSize, sort, out totalRow);
+            var productViewModel = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productModel);
+            int totalPage = (int)Math.Ceiling((double)totalRow / pageSize);
+
+            var paginationSet = new PaginationSet<ProductViewModel>()
+            {
+                Items = productViewModel,
+                MaxPage = int.Parse(ConfigHelper.GetByKey("MaxPage")),
+                Page = page,
+                TotalCount = totalRow,
+                TotalPages = totalPage
+            };
+            return View(paginationSet);
+        }
+
         // GET: Product
+        [OutputCache(Duration = 60, Location = System.Web.UI.OutputCacheLocation.Client)]
         public ActionResult Detail(int id)
         {
             var productModel = _productService.GetById(id);
@@ -97,7 +118,7 @@ namespace NTShop.Web.Controllers
             var productViewModel = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productModel);
             int totalPage = (int)Math.Ceiling((double)totalRow / pageSize);
 
-            ViewBag.Tag = Mapper.Map<Tag,TagViewModel>(_productService.GetTag(tagId));
+            ViewBag.Tag = Mapper.Map<Tag, TagViewModel>(_productService.GetTag(tagId));
             var paginationSet = new PaginationSet<ProductViewModel>()
             {
                 Items = productViewModel,
@@ -106,7 +127,9 @@ namespace NTShop.Web.Controllers
                 TotalCount = totalRow,
                 TotalPages = totalPage
             };
-            return  View(paginationSet);
+            return View(paginationSet);
         }
+
+       
     }
 }

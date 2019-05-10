@@ -2,7 +2,10 @@
 
 @{
     var tag = (NTShop.Web.Models.TagViewModel)ViewBag.Tag;
-    ViewBag.Title = "Kết quả cho tag" + tag.Name;
+    var pageIndex = Model.Page;
+    ViewBag.Title = pageIndex == 1 ? "Kết quả cho tag" + tag.Name : "Kết quả cho tag" + tag.Name + " - Trang " + pageIndex;
+    ViewBag.Metakeyword = pageIndex == 1 ? "Kết quả cho tag" + tag.Name : "Kết quả cho tag" + tag.Name + " - Trang " + pageIndex;
+    ViewBag.MetaDescription = pageIndex == 1 ? "Kết quả cho tag" + tag.Name : "Kết quả cho tag" + tag.Name + " - Trang " + pageIndex;
     Layout = "~/Views/Shared/Layouts.cshtml";
 
 }
@@ -13,7 +16,7 @@
         <div class="w_content">
             <div class="women">
                 <a href=""><h4>@tag.Name - <span> @Model.TotalCount sản phẩm liên quan</span> </h4></a>
-                
+
                 <div class="clearfix"> </div>
             </div>
         </div>
@@ -22,11 +25,11 @@
             @foreach (var product in Model.Items)
             {
                 var url = "/" + product.Alias + ".p-" + product.ID;
-                <div class="product-grid">
+                <div class=" product-grid">
                     <div class="content_box">
                         <a href="@url">
                             <div class="left-grid-view grid-view-left">
-                                <img src="@product.Image" class="img-responsive watch-right" alt="@product.Name" />
+                                <img src="@product.Image" class="img-responsive watch-right" width="210" height="285" alt="@product.Name" />
                                 <div class="mask">
                                     <div class="info">Xem nhanh</div>
                                 </div>

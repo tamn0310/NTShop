@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
+using NTShop.Common;
 using NTShop.Model.Models;
 using NTShop.Service;
 using NTShop.Web.Models;
-using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -10,9 +10,9 @@ namespace NTShop.Web.Controllers
 {
     public class HomeController : Controller
     {
-        IProductCategoryService _productCategoryService;
-        ICommonService _commonService;
-        IProductService _productService;
+        private IProductCategoryService _productCategoryService;
+        private ICommonService _commonService;
+        private IProductService _productService;
 
         public HomeController(IProductCategoryService productCategoryService, ICommonService commonService, IProductService productService)
         {
@@ -21,26 +21,35 @@ namespace NTShop.Web.Controllers
             this._productService = productService;
         }
 
-        [OutputCache(Duration =60, Location =System.Web.UI.OutputCacheLocation.Client)]
+        [OutputCache(Duration = 60, Location = System.Web.UI.OutputCacheLocation.Client)]
         public ActionResult Index()
         {
             var slideModel = _commonService.GetSlides();
-            var slideView = Mapper.Map<IEnumerable<Slide>,IEnumerable<SlideViewModel>>(slideModel);
+            var slideView = Mapper.Map<IEnumerable<Slide>, IEnumerable<SlideViewModel>>(slideModel);
             var homeViewModel = new HomeViewModel();
             homeViewModel.Slides = slideView;
 
             var lastestProductModel = _productService.GetLastest(3);
             var topSaleProductModel = _productService.GetHotProduct(3);
-            var lastestProductViewModel = Mapper.Map<IEnumerable<Product>,IEnumerable<ProductViewModel >> (lastestProductModel);
-            var topSaleProductViewModel = Mapper.Map<IEnumerable<Product>,IEnumerable<ProductViewModel >> (topSaleProductModel);
+            var lastestProductViewModel = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(lastestProductModel);
+            var topSaleProductViewModel = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(topSaleProductModel);
             homeViewModel.LastestProducts = lastestProductViewModel;
             homeViewModel.TopSaleProducts = topSaleProductViewModel;
+
+            try
+            {
+                homeViewModel.Title = _commonService.GetSystemConfig(CommonConstants.HomeTitle).ValueString;
+                homeViewModel.Metakeyword = _commonService.GetSystemConfig(CommonConstants.HomeMetakeyword).ValueString;
+                homeViewModel.MetaDescription = _commonService.GetSystemConfig(CommonConstants.HomeMetaDescription).ValueString;
+            }
+            catch
+            { }
+
             return View(homeViewModel);
         }
-        
-       
+
         [ChildActionOnly]
-        [OutputCache(Duration =3600)]
+        [OutputCache(Duration = 3600)]
         public ActionResult Footer()
         {
             var footerModel = _commonService.GetFooter();
@@ -50,7 +59,6 @@ namespace NTShop.Web.Controllers
         }
 
         [ChildActionOnly]
-      
         public ActionResult Header()
         {
             return PartialView();

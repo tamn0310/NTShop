@@ -23,6 +23,36 @@
             CreateSlide(context);
             CreatePage(context);
             CreateContactDetail(context);
+
+            CreateConfigTitle(context);
+        }
+
+        private void CreateConfigTitle(NTShopDbContext context)
+        {
+            if (!context.SystemConfigs.Any(x => x.Code == "HomeTitle"))
+            {
+                context.SystemConfigs.Add(new SystemConfig()
+                {
+                    Code = "HomeTitle",
+                    ValueString = "Trang chủ NTShop"
+                });
+            }
+            if (!context.SystemConfigs.Any(x => x.Code == "HomeMetakeyword"))
+            {
+                context.SystemConfigs.Add(new SystemConfig()
+                {
+                    Code = "HomeMetakeyword",
+                    ValueString = "Trang chủ NTShop"
+                });
+            }
+            if (!context.SystemConfigs.Any(x => x.Code == "HomeMetaDescription"))
+            {
+                context.SystemConfigs.Add(new SystemConfig()
+                {
+                    Code = "HomeMetaDescription",
+                    ValueString = "Trang chủ NTShop"
+                });
+            }
         }
 
         private void CreateUser(NTShopDbContext context)

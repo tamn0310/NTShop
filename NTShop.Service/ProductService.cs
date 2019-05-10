@@ -15,6 +15,8 @@ namespace NTShop.Service
 
         Product Delete(int id);
 
+        IEnumerable<Product> GetAllProduct(int page, int pageSize, string sort, out int totalRow);
+
         IEnumerable<Product> GetAll();
 
         IEnumerable<Product> GetAll(string keyword);
@@ -107,6 +109,32 @@ namespace NTShop.Service
                 return _productRepository.GetMulti(x => x.Name.Contains(keyword) || x.Description.Contains(keyword));
             else
                 return _productRepository.GetAll();
+        }
+
+        public IEnumerable<Product> GetAllProduct(int page, int pageSize, string sort, out int totalRow)
+        {
+            var query = _productRepository.GetMulti(x => x.Status);
+
+            switch (sort)
+            {
+                case "popular":
+                    query = query.OrderByDescending(x => x.ViewCount);
+                    break;
+
+                case "price":
+                    query = query.OrderBy(x => x.Price);
+                    break;
+
+                case "discount":
+                    query = query.OrderByDescending(x => x.PromotionPrice.HasValue);
+                    break;
+
+                default:
+                    query = query.OrderByDescending(x => x.CreatedDate);
+                    break;
+            }
+            totalRow = query.Count();
+            return query.Skip((page - 1) * pageSize).Take(pageSize);
         }
 
         public Product GetById(int id)
