@@ -328,3 +328,5 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+NTShop.Web/UploadFiles/images/
+NTShop.Web/UploadFiles/_thumbs/Images/

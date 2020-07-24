@@ -1,7 +1,7 @@
 ﻿using NTShop.Model.Abstract;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Xml.Linq;
 
 namespace NTShop.Model.Models
 {
@@ -25,10 +25,12 @@ namespace NTShop.Model.Models
 
         public string Image { set; get; }
 
-        [Column(TypeName ="xml")]
+        [Column(TypeName = "xml")]
         public string MoreImages { set; get; }
 
         public decimal Price { set; get; }
+
+        public decimal OriginalPrice { get; set; }
 
         public decimal? PromotionPrice { set; get; }
 
@@ -45,7 +47,13 @@ namespace NTShop.Model.Models
 
         public int? ViewCount { get; set; }
 
+        public string Tags { get; set; }
+
+        public int Quantity { get; set; }
+
         [ForeignKey("CategoryID")]
         public virtual ProductCategory ProductCategory { get; set; }
+
+        public virtual IEnumerable<ProductTag> ProductTags { get; set; }
     }
 }
